@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+require('dotenv').config()
 
 var options = {
     connectTimeoutMS: 5000,
@@ -6,7 +7,7 @@ var options = {
     useNewUrlParser: true,
 }
 
-mongoose.connect('mongodb+srv://dbKv1k:g2XYti7Qm8PzsWP3@cluster0.ovbmt.mongodb.net/morningnews?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://dbKv1k:${process.env.dbKey}@cluster0.ovbmt.mongodb.net/morningnews?retryWrites=true&w=majority`,
     options,         
     function(error){
     if (error) {
